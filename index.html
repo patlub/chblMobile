@@ -3,14 +3,24 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="themes/theme.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
     <link href="jquery/jquery.mobile-1.4.5.min.css" rel="stylesheet"/>
-    <script src="jquery/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="jquery/jquery-ui.js" type="text/javascript"></script>
     <script src="jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
 </head>
 <body>
 <style type="text/css">
+    #logobox{
+        width: 30%;
+        padding-bottom: 0px;
+    }
+    #logo{
+        width: 100%;
+    }
     .panel{
         padding-top: 10px;
         padding-bottom: 10px;
@@ -18,9 +28,17 @@
         padding-left: 00px;
         border-bottom: groove 1px;
     }
+    .ui-panel {
+        width: 170px !important;
+    }
+    #heading{
+        font-weight: 100;
+        font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+        font-size: 30px;;
+    }
 </style>
 <script type="text/javascript">
-    var panel = '<div data-role="panel" data-position="left" data-display="reveal" id="homePanel" data-theme="a" data-swipe-close="true">'+
+    var panel = '<div data-role="panel" data-position="left" data-display="overlay" id="homePanel" data-theme="a" data-swipe-close="true">'+
 
             '<div style="color: firebrick; font-weight: bolder;">Categories<span class="icon"></span></div>'+
             '<div class="panel" onclick="$.mobile.changePage(\'#homePage\', { transition: \'slide\'} );"><div style="padding-left: 30px;">Home</div></div>'+
@@ -34,14 +52,20 @@
         $("#homePanel").panel();
     });
 </script>
-<div data-role="page" id="homePage">
+<div data-role="page" id="homePage" data-theme="d">
     <div data-role="header">
         <h1>Home</h1>
-        <a href="#homePanel" data-role="button" data-icon="grid" data-iconpos="notext"></a>
+        <a href="#homePanel" data-role="button" data-icon="" data-iconpos="notext"><img src="img/menu.png"></a>
     </div>
     <div data-role="main" class="ui-content">
-        <h1>Hello World</h1>
-        <p>Welcome to my first Page</p>
+        <div id="heading" align="center">
+            <div id="logobox"><img src="img/chlogo.png" id="logo" class="img-responsive"></div>
+            <div id="subHeading">Find Businesses and Professionals you can trust. Search now</div>
+        </div>
+        <div id="search">
+            <input type="text" placeholder="Eg. bricks or lawyer">
+            <button id="searchBtn">Find</button>
+        </div>
     </div>
     <div data-role="footer">
         <h2>&copy; Patrick 2015</h2>
