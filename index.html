@@ -12,11 +12,37 @@
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 
 </head>
+<script type="text/javascript">
+    var panel =
+            '<div data-role="panel" data-position="left" data-display="overlay" id="homePanel" data-theme="a" data-swipe-close="true">'+
+            '<div style="color: firebrick; font-weight: bolder;">Categories<span class="icon"></span></div>'+
+            '<div class="panel" onclick="$.mobile.changePage(\'#homePage\', { transition: \'slide\'} );"><img src="img/home.png" style="float: left;"><div style="padding-left: 30px;">Home</div></div>'+
+            '<div class="panel" onclick="$.mobile.changePage(\'#businessPage\', { transition: \'slide\'} );"><img src="img/business.png" style="float: left; padding-top: 3px;"><div style="padding-left: 30px;">Businesses</div></div>'+
+            '<div class="panel" onclick="$.mobile.changePage(\'#professionPage\', { transition: \'slide\'} );"><img src="img/pro.png" style="float: left;"><div style="padding-left: 30px;">Professions</div></div>'+
+            '<div class="panel" onclick="$.mobile.changePage(\'#IOPage\', { transition: \'slide\'} );"><img src="img/io.png" style="float: left;"><div style="padding-left: 30px;">In & Outputs</div></div>'+
+            '</div>';
+
+    $(document).one('pagebeforecreate', function () {
+        $.mobile.pageContainer.prepend(panel);
+        $("#homePanel").panel();
+    });
+</script>
+
 <body>
 <style type="text/css">
+    div{
+        /*border: 1px solid red !important;*/
+    }
+    .page-title{
+        padding-left: 30%;
+        padding-top: 7px;
+        font-size: 15px;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 600;
+    }
     #logobox{
         width: 30%;
-        padding-bottom: 0px;
+        padding-bottom: 5%;
     }
     #logo{
         width: 100%;
@@ -31,88 +57,104 @@
     .ui-panel {
         width: 170px !important;
     }
+    .ui-content{
+        color: #ffffff;
+    }
     #heading{
         font-weight: 100;
         font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
         font-size: 30px;;
+        color: #ffffff;
+    }
+    #homePanel{
+        background-color: #FFFFFF !important;
+    }
+    .menu{
+        margin-top: 6px;
+        margin-bottom: 7px;
+    }
+    .side-panel{
+        background-color: #adadad;
+    }
+    .page-bg{
+        background-image: url('img/bg-image.jpg');
+        width: 100%;
+        height: auto;
     }
 </style>
-<script type="text/javascript">
-    var panel = '<div data-role="panel" data-position="left" data-display="overlay" id="homePanel" data-theme="a" data-swipe-close="true">'+
-
-            '<div style="color: firebrick; font-weight: bolder;">Categories<span class="icon"></span></div>'+
-            '<div class="panel" onclick="$.mobile.changePage(\'#homePage\', { transition: \'slide\'} );"><div style="padding-left: 30px;">Home</div></div>'+
-            '<div class="panel" onclick="$.mobile.changePage(\'#businessPage\', { transition: \'slide\'} );"><div style="padding-left: 30px;">Businesses</div></div>'+
-            '<div class="panel" onclick="$.mobile.changePage(\'#professionPage\', { transition: \'slide\'} );"><div style="padding-left: 30px;">Professions</div></div>'+
-            '<div class="panel" onclick="$.mobile.changePage(\'#IOPage\', { transition: \'slide\'} );"><div style="padding-left: 30px;">Inputs & Outputs</div></div>'+
-
-            '</div>';
-    $(document).one('pagebeforecreate', function () {
-        $.mobile.pageContainer.prepend(panel);
-        $("#homePanel").panel();
-    });
-</script>
 <div data-role="page" id="homePage" data-theme="d">
-    <div data-role="header">
-        <h1>Home</h1>
-        <a href="#homePanel" data-role="button" data-icon="" data-iconpos="notext"><img src="img/menu.png"></a>
+    <div data-role="header" style="display: flex;">
+        <div class="menu">
+            <a href="#homePanel"><img src="img/menu.png"></a>
+        </div>
+        <div class="page-title">Home</div>
     </div>
-    <div data-role="main" class="ui-content">
+    <div data-role="main" class="ui-content page-bg" style="">
         <div id="heading" align="center">
-            <div id="logobox"><img src="img/chlogo.png" id="logo" class="img-responsive"></div>
+            <div id="logobox"><img src="img/chlogo.png" id="logo" class="img-responsive" alt="logo"></div>
+            <div align="center">
+                <img src="img/linkage-img.png" id="linkageImg" class="img-responsive" alt="linkage image">
+            </div>
             <div id="subHeading">Find Businesses and Professionals you can trust. Search now</div>
         </div>
-        <div id="search">
-            <input type="text" placeholder="Eg. bricks or lawyer">
-            <button id="searchBtn">Find</button>
-        </div>
+        <form>
+            <div id="search-form" class="input-group">
+                <input type="text" class="form-control" placeholder="Eg. bricks or lawyer">
+                <button type="submit" id="searchBtn">Find</button>
+            </div>
+        </form>
     </div>
     <div data-role="footer">
-        <h2>&copy; Patrick 2015</h2>
+        <h1>&copy; Christ's Heart 2016</h1>
     </div>
 </div>
 
 <div data-role="page" id="businessPage">
-    <div data-role="header">
-        <h1>Businesses</h1>
-        <a href="#homePanel" data-role="button" data-icon="grid" data-iconpos="notext"></a>
+    <div data-role="header" style="display: flex;">
+        <div class="menu">
+            <a href="#homePanel"><img src="img/menu.png"></a>
+        </div>
+        <div class="page-title">Businesses</div>
     </div>
-    <div data-role="main" class="ui-content">
+    <div data-role="main" class="ui-content page-bg">
         <h1>Businesses</h1>
         <p>Welcome to my business Page</p>
     </div>
     <div data-role="footer">
-        <h2>&copy; Patrick 2015</h2>
+        <h2>&copy; Christ's Heart 2016</h2>
     </div>
 </div>
 
 <div data-role="page" id="professionPage">
-    <div data-role="header">
-        <h1>Home</h1>
-        <a href="#homePanel" data-role="button" data-icon="grid" data-iconpos="notext"></a>
+    <div data-role="header" style="display: flex;">
+        <div class="menu">
+            <a href="#homePanel"><img src="img/menu.png"></a>
+        </div>
+        <div class="page-title">Professions</div>
     </div>
-    <div data-role="main" class="ui-content">
+    <div data-role="main" class="ui-content page-bg">
         <h1>Professions</h1>
         <p>Welcome to my profession Page</p>
     </div>
     <div data-role="footer">
-        <h2>&copy; Patrick 2015</h2>
+        <h2>&copy; Christ's Heart 2016</h2>
     </div>
 </div>
 
 <div data-role="page" id="IOPage">
-    <div data-role="header">
-        <h1>Home</h1>
-        <a href="#homePanel" data-role="button" data-icon="grid" data-iconpos="notext"></a>
+    <div data-role="header" style="display: flex;">
+        <div class="menu">
+            <a href="#homePanel"><img src="img/menu.png"></a>
+        </div>
+        <div class="page-title">Inputs & Outputs</div>
     </div>
-    <div data-role="main" class="ui-content">
+    <div data-role="main" class="ui-content page-bg">
         <h1>Inputs & Outputs</h1>
         <p>Welcome to my inputs & outputs Page</p>
     </div>
     <div data-role="footer">
-        <h2>&copy; Patrick 2015</h2>
+        <h2>&copy; Christ's Heart 2016</h2>
     </div>
 </div>
-
 </body>
 </html>
